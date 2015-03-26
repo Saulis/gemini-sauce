@@ -84,7 +84,7 @@ describe('plugin', function() {
     it('should start sauce tunnel', function() {
       startRunner();
 
-      expect(sauce.start.called);
+      expect(sauce.start.called).to.be.true;
     });
 
     it('should replace gridUrl', function() {
@@ -121,7 +121,7 @@ describe('plugin', function() {
 
       startRunner();
 
-      expect(deferred.resolve.called);
+      expect(deferred.resolve.called).to.be.true;
     });
   });
 
@@ -138,7 +138,7 @@ describe('plugin', function() {
     it('should stop sauce tunnel', function() {
       endRunner();
 
-      expect(sauce.stop.called);
+      expect(sauce.stop.called).to.be.true;
     });
 
     it('should return a promise', function() {
@@ -154,7 +154,7 @@ describe('plugin', function() {
 
       endRunner();
 
-      expect(deferred.resolve.called);
+      expect(deferred.resolve.called).to.be.true;
     });
   });
 });

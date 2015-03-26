@@ -74,7 +74,7 @@ describe('sauce', function() {
     it('should enable cleankill on interrupt', function() {
       start();
 
-      expect(cleankill.onInterrupt.called);
+      expect(cleankill.onInterrupt.called).to.be.true;
     });
   });
 
@@ -96,15 +96,17 @@ describe('sauce', function() {
 
       stop();
 
-      expect(tunnel.close.called);
-      expect(done.called);
+      expect(tunnel.close.called).to.be.true;
+      expect(done.called).to.be.true;
     });
 
     it('should kill sauce connect if no tunnels are open', function() {
+      sauceConnect.kill.bind = sinon.spy();
+
       stop();
 
-      expect(sauceConnect.kill.called);
-      expect(done.called);
+      expect(sauceConnect.kill.bind.called).to.be.true;
+      expect(done.called).to.be.true;
     });
   });
 });
