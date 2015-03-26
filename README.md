@@ -1,6 +1,8 @@
 # gemini-sauce
 Plugin for starting up Sauce Connect when running tests with Gemini
 
+![](https://travis-ci.org/Saulis/gemini-sauce.svg?branch=master)
+
 ## Notes
 Requires a version of gemini that supports plugin loading. See https://github.com/bem/gemini/pull/127
 
