@@ -87,25 +87,26 @@ describe('plugin', function() {
       expect(sauce.start.called).to.be.true;
     });
 
-    it('should replace gridUrl', function() {
+    it('should inject gridUrl to browsers', function() {
+      gemini.config._browsers = {'chrome': {desiredCapabilities: {platform: 'Windows'}}};
       sauce.start = function(opts, cb) {
         cb({gridUrl: 'url'});
       };
 
       startRunner();
 
-      expect(gemini.config.gridUrl).to.equal('url');
+      expect(gemini.config._browsers.chrome.gridUrl).to.equal('url');
     });
 
     it('should inject tunnel identifier to browsers', function() {
-      gemini.config.browsers = {'chrome': { platform: 'Windows'}};
+      gemini.config._browsers = {'chrome': {desiredCapabilities: {platform: 'Windows'}}};
       sauce.start = function(opts, cb) {
         cb({tunnelId: 'identifier'});
       };
 
       startRunner();
 
-      expect(gemini.config.browsers.chrome['tunnel-identifier']).to.equal('identifier');
+      expect(gemini.config._browsers.chrome.desiredCapabilities['tunnel-identifier']).to.equal('identifier');
     });
 
     it('should return a promise', function() {

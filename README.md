@@ -4,7 +4,7 @@ Plugin for starting up Sauce Connect when running tests with Gemini
 [![Build Status](https://travis-ci.org/Saulis/gemini-sauce.svg?branch=master)](https://travis-ci.org/Saulis/gemini-sauce)
 
 ## Requirements
-Works with [gemini](https://github.com/gemini-testing/gemini) [v0.11](https://github.com/gemini-testing/gemini/releases/tag/v0.11.0) or later.
+Works with [gemini](https://github.com/gemini-testing/gemini) [v0.13.4](https://github.com/gemini-testing/gemini/releases/tag/v0.13.4) or later.
 
 ## Installation
 `npm install gemini-sauce`
@@ -15,9 +15,10 @@ Works with [gemini](https://github.com/gemini-testing/gemini) [v0.11](https://gi
 
 Set the configuration to your `.gemini.yml`
 
-```
-plugins:
-  sauce:
-    username: foo
-    accessKey: bar
+```yml
+system:
+  plugins:
+    sauce:
+      username: foo
+      accessKey: bar
 ```
