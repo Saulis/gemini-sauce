@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var expect = require('chai').expect;
 var mockery = require('mockery');
 var sinon = require('sinon');
@@ -26,7 +27,15 @@ describe('plugin', function() {
     gemini.on = function(event, cb) {
       gemini[event] = cb;
     };
-    gemini.config = sinon.spy();
+    gemini.config = {
+      getBrowserIds: function () {
+         return _.keys(gemini.config._browsers)
+      },
+      forBrowser: function (browserId) {
+         return gemini.config._browsers[browserId]
+      },
+      _browsers: {}
+    };
 
     deferred = sinon.spy();
     deferred.resolve = sinon.spy();
@@ -56,7 +65,7 @@ describe('plugin', function() {
     }).to.throw(Error);
   });
 
-  it  ('should read credentials from env', function() {
+  it ('should read credentials from env', function() {
     process.env.SAUCE_USERNAME = 'foo';
     process.env.SAUCE_ACCESS_KEY = 'bar';
 
