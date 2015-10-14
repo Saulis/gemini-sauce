@@ -1,6 +1,6 @@
 {
   "name": "gemini-sauce",
-  "version": "0.13.0",
+  "version": "1.0.0",
   "description": "Plugin for starting up Sauce Connect when running tests with Gemini",
   "main": "lib/plugin.js",
   "scripts": {
