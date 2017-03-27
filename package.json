@@ -25,7 +25,7 @@
     "cleankill": "^1.0.0",
     "lodash": "^3.5.0",
     "q": "^1.2.0",
-    "sauce-connect-launcher": "^0.10.1",
+    "sauce-connect-launcher": "^1.2.0",
     "uuid": "^2.0.1"
   },
   "devDependencies": {
